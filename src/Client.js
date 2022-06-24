@@ -379,7 +379,7 @@ class Client {
                 const html = await Util.parseHTML(username);
                 const URNSearch = /soundcloud:\/\/users:(?<urn>\d+)/.exec(html);
                 if (!URNSearch || !URNSearch.groups.urn) return reject(new Error("User not found!"));
-                const tracksSection = html.split("<section>")[1].split("</section>")[0];
+                const tracksSection = html.split("<section>")[0].split("</section>")[0];
 
                 const $ = Util.loadHTML(tracksSection);
                 let banner = null;
